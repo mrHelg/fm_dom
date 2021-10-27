@@ -16,7 +16,6 @@ function updateView(){
 }
 updateView();
 
-
 const bthSliderHandler = (direction = 'next') => () =>{
   slider.currentIndex = slider[direction === 'next' ? 'nextIndex' : 'prevIndex'];
   updateView();
@@ -24,4 +23,23 @@ const bthSliderHandler = (direction = 'next') => () =>{
 
 nextBtn.addEventListener('click', bthSliderHandler('next'));
 prevBtn.addEventListener('click', bthSliderHandler('prev'));
+
+
+/*------------------------------------------- */
+
+const uniqueBtn = document.getElementById('unique');
+
+uniqueBtn.addEventListener('click', (e)=>{
+  console.log(e.target, e.target.innerText)
+  console.log(e.currentTarget, e.currentTarget.textContent)
+});
+
+document.body.addEventListener('click', btnUniqHandler);
+
+function btnUniqHandler(e){
+  console.log(e.target.innerText)
+  console.log(e.target.textContent)
+}
+
+
 
