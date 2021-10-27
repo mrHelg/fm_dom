@@ -1,12 +1,13 @@
 'use strict';
+let i=100;
 
-function createCounter(){
-  let i=0;//замкнутная переменная
+function createCounter(initial=0){
+  let i=initial;//замкнутная переменная
   return function counter(){
-    i++;
-    return i;
+    return ++i;
   }
 }
 
-const counter1 = createCounter();
+const counter1 = createCounter(10);
+console.log(counter1());
 const counter2 = createCounter();
