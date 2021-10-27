@@ -24,22 +24,28 @@ const bthSliderHandler = (direction = 'next') => () =>{
 nextBtn.addEventListener('click', bthSliderHandler('next'));
 prevBtn.addEventListener('click', bthSliderHandler('prev'));
 
+image.addEventListener('wheel', (e)=>{
+  // const handler = e.deltaY>0? bthSliderHandler('next'):bthSliderHandler('prev');
+  // handler();
+  e.deltaY>0 ? bthSliderHandler('next')():bthSliderHandler('prev')();
+})
+
+
 
 /*------------------------------------------- */
 
-const uniqueBtn = document.getElementById('unique');
+// const uniqueImg = document.getElementById('unique');
 
-uniqueBtn.addEventListener('click', (e)=>{
-  console.log(e.target, e.target.innerText)
-  console.log(e.currentTarget, e.currentTarget.textContent)
-});
+// const srcAttr = document.createAttribute('src');
+// srcAttr.value = imagesDB[0];
 
-document.body.addEventListener('click', btnUniqHandler);
+// uniqueImg.setAttributeNode(srcAttr);
 
-function btnUniqHandler(e){
-  console.log(e.target.innerText)
-  console.log(e.target.textContent)
-}
+/*
+
+По клику на кнопку показывать чередоваинем одну из двух картинок
+
+*/
 
 
 
