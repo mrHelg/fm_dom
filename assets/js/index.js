@@ -16,12 +16,12 @@ function updateView(){
 }
 updateView();
 
-nextBtn.addEventListener('click', ()=>{
-  slider.currentIndex = slider.next();
-  updateView();
-})
 
-prevBtn.addEventListener('click', ()=>{
-  slider.currentIndex = slider.prev();
+const bthSliderHandler = (direction = 'next') => () =>{
+  slider.currentIndex = slider[direction === 'next' ? 'nextIndex' : 'prevIndex'];
   updateView();
-})
+}
+
+nextBtn.addEventListener('click', bthSliderHandler('next'));
+prevBtn.addEventListener('click', bthSliderHandler('prev'));
+
