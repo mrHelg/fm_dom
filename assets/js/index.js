@@ -1,29 +1,11 @@
 'use strict';
 
-const [openBtn, closeBtn] = document.querySelectorAll('button');
+const btns = document.querySelectorAll('button');
 
-/*поменять местами содeржимое двух по наведению на любую */
+const btnHandler = ({target:{dataset:{path}}})=>{console.log(path);}
 
-const switchInnerText = ({target})=>{
-  const openElem = target===closeBtn ? openBtn : closeBtn;
-  const closeElem = target===closeBtn ? closeBtn : openBtn;
-
-  const buffer = openElem.textContent;
-  openElem.textContent = closeElem.textContent;
-  closeElem.textContent = buffer;
-
-  closeElem.removeEventListener('mouseenter',switchInnerText);
-  openElem.addEventListener('mouseenter',switchInnerText);
+for (const btn of btns) {
+  btn.addEventListener('click', btnHandler);
 }
-
-const clickHandler = ({target})=>{
-  console.log(target)
-}
-
-//openBtn.addEventListener('mouseenter',switchInnerText, {once:true});
-closeBtn.addEventListener('mouseenter',switchInnerText);
-
-openBtn.addEventListener('click', clickHandler);
-closeBtn.addEventListener('click', clickHandler);
 
 
