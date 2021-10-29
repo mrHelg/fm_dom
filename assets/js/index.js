@@ -10,27 +10,22 @@ const btnHandler = ({
   }
 })=>{
   parentRoot.style.backgroundColor = color;
-
 }
-const handler = (e)=>{ 
-  //e.cancelBubble = true;
-  e.stopPropagation() ;
-  console.group();  
-  console.dir(e.target); 
-  console.dir(e.currentTarget);//  
-  console.groupEnd();
+
+
+
+
+const handler = ({currentTarget})=>{ 
+  console.log(currentTarget, 'dipping');
 }
 
 for (const btn of btns) {
-  btn.addEventListener('click', btnHandler);
-  btn.addEventListener('click', handler);
-  btn.addEventListener('click', ()=>{console.log(123)}, {capture:true, once:true});
+  btn.addEventListener('click', handler,true);
 }
-
-document.getElementById('root').addEventListener('click', handler);
-document.body.addEventListener('click', handler);
-
-document.addEventListener('click', handler, true);
-window.addEventListener('click', handler, true);
+/* на root только один раз */
+document.getElementById('root').addEventListener('click', handler,true);
+document.body.addEventListener('click', handler,true);
+document.addEventListener('click', handler,true);
+window.addEventListener('click', handler,true);
 
 
