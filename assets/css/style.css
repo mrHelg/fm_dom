@@ -38,9 +38,9 @@ ul{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-color: rgb(200, 107, 107);
   color:#fff;
-  font-size: 4rem;;
+  font-size: 4rem;
 }
 .cardImage{
   width: inherit;
