@@ -19,15 +19,37 @@ ul{
   justify-content: space-evenly;
 }
 .cardWrapper{
+  display: flex;
+  align-items: flex-end;
   margin: 1rem;
   border: 3px solid #ddd;
 }
 .cardContainer{
+  width: 300px;
   text-align: center;
 }
-.cardImage{
-  width: 300px;
+.cardImageWrapper{
+  width: inherit;
+  position: relative;
   height: 300px;
+}
+.initials{
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color:#fff;
+  font-size: 4rem;;
+}
+.cardImage{
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
   object-fit: cover;
   object-position: top;
 }

@@ -30,4 +30,4 @@ function createActorCards(actor){
   return card;
 }
 
-cardsContainer.append(...HTMLElements);
+//cardsContainer.append(...HTMLElements);
