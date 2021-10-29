@@ -16,7 +16,8 @@ function createActorCards(actor){
 
   const initials = document.createElement('div');
   initials.classList.add('initials');
-  initials.append(document.createTextNode(actor.name[0]));
+  initials.append(document.createTextNode(actor.name[0] || 'noname'));
+  initials.style.backgroundColor = stringToColour(actor.name || '');
 
   const img = document.createElement('img');
   img.classList.add('cardImage');
@@ -28,11 +29,11 @@ function createActorCards(actor){
 
   const name = document.createElement('h2');
   name.classList.add('cardName');
-  name.append(document.createTextNode(actor.name));
+  name.append(document.createTextNode(actor.name || 'noname'));
 
   const description = document.createElement('p');
   description.classList.add('cardDescription');
-  description.append(document.createTextNode(actor.birthdate));
+  description.append(document.createTextNode(actor.birthdate || 'unknow'));
 
   container.append(imgWrapper, name, description);
   card.append(container);
@@ -44,15 +45,15 @@ cardsContainer.append(...HTMLElements);
 function handleImageError({target}){
   target.remove();
 }
-/*  */
-var stringToColour = function(str) {
-  var hash = 0;
-  for (var i = 0; i < str.length; i++) {
+/* utilits */
+function stringToColour(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-  var colour = '#';
-  for (var i = 0; i < 3; i++) {
-    var value = (hash >> (i * 8)) & 0xFF;
+  let colour = '#';
+  for (let i = 0; i < 3; i++) {
+    let value = (hash >> (i * 8)) & 0xFF;
     colour += ('00' + value.toString(16)).substr(-2);
   }
   return colour;
