@@ -24,12 +24,16 @@ cardsContainer.append(...HTMLElements);
  * 
  * @param {string} type 
  * @param {object} options 
+ * @param {string} options.typeEvent
+ * @param {string[]} options.classNames
+ * @param {function} options.onClick
  * @param {Node[]} children 
+ * return {Node}
  */
-function createElement(type,{classNames, onClick}, ...children){
+function createElement(type,{classNames, typeEvent, onClick}, ...children){
   const elem = document.createElement(type);
   elem.classList.add(...classNames);
-  elem.addEventListener('click', onClick);//for example
+  elem.addEventListener(typeEvent, onClick);//for example
   elem.append(...children);
   return elem;
 }
@@ -40,13 +44,13 @@ function createImageWrapper(actor){
   imgWrapper.setAttribute('id', `wrapper${id}`);
   imgWrapper.classList.add('cardImageWrapper');
   
-
   const initials = document.createElement('div');
   initials.classList.add('initials');
   initials.append(document.createTextNode(name[0] || 'noname'));
   initials.style.backgroundColor = stringToColour(name || '');
 
-  imgWrapper.append(initials, createImage(actor));
+  imgWrapper.append(initials);
+  createImage(actor);
   return imgWrapper;
 }
 
@@ -71,7 +75,6 @@ function handleImageLoad({
     dataset:{id},
   }
 }){
-  console.log(target);
   document.getElementById(`wrapper${id}`).append(target);
 }
 

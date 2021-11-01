@@ -1,10 +1,10 @@
 const actors = [
   {
     id: 1,
-    name : '',
+    name : 'Tom Cruise',
     birthdate : 'July 3, 1962',
-    photo : 'https://www.filmibeat.com/img/popcorn/profile_photos/tom-cruise-20190610151455-4602.jpgw',
-    //photo:'https://friendofthesea.org/public/news/blue-ocean-28668-2560x1600.jpg'
+    //photo : 'https://www.filmibeat.com/img/popcorn/profile_photos/tom-cruise-20190610151455-4602.jpgw',
+    photo:'https://friendofthesea.org/public/news/blue-ocean-28668-2560x1600.jpg'
   },
   {
     id: 2,
