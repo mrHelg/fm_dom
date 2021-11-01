@@ -1,6 +1,8 @@
 'use strict';
 const cardsContainer = document.getElementById('cardsContainer');
-const HTMLElements = actors.map((actor)=>createActorCards(actor));
+const HTMLElements = actors
+  .filter((actor)=>actor.name&&actor.birthdate&&actor.photo)
+  .map((actor)=>createActorCards(actor));
 
 function createActorCards(actor){
   const p = createElement('p', {classNames:['cardDescription']},
@@ -37,6 +39,7 @@ function createImageWrapper(actor){
   const imgWrapper = document.createElement('div');
   imgWrapper.setAttribute('id', `wrapper${id}`);
   imgWrapper.classList.add('cardImageWrapper');
+  
 
   const initials = document.createElement('div');
   initials.classList.add('initials');
@@ -55,7 +58,7 @@ function createImage({photo, name, id}){
   img.setAttribute('alt', name);
   img.addEventListener('error', handleImageError);
   img.addEventListener('load', handleImageLoad);
-  return img;
+  //return img;
 }
 
 /*  handles */
@@ -68,6 +71,7 @@ function handleImageLoad({
     dataset:{id},
   }
 }){
+  console.log(target);
   document.getElementById(`wrapper${id}`).append(target);
 }
 
