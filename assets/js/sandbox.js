@@ -1,24 +1,19 @@
 'use strict';
-let i=100;
 
-function createCounter(initial=0){
-  let i=initial;//замкнутная переменная
-  return {
-    increment(){
-      return ++i;
-    },
-    decrement(){
-      return --i;
-    }
-  }
+const pattern1 = new RegExp('\\b\\w{2}\\b','gi');
+
+const pattern2 = /\b\w{4}\b/gi;
+
+if(pattern2.test('qwewdfsf 15sdsa21 @#$#')){
+  console.log(true)
+}else{
+  console.log(false)
 }
 
-const counter1 = createCounter(10);
-console.log(counter1.increment());
-console.log(counter1.decrement());
-const counter2 = createCounter();
+const str = 'All qwewqe1956my troubles qweqwe1998seemed 1999so far away';
 
+const pattern3 = /\b(?:[a-z]*)(\d{4})([a-z]+)/gi;
 
-const createAdder = (n) => (m) =>(n += m);
-const adder = createAdder(10);
+const newStr = str.replace(pattern3, '$2 - $1');
 
+console.log(newStr)
