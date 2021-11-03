@@ -7,11 +7,12 @@ const form = document.getElementById('root-form');
 form.addEventListener('submit', (e)=>{
   e.preventDefault();
   const {target: { textInput }} = e;
-  //после нажатия на кнопку добавлять значение инпута в массив, если оно не пустое
   const inputValue = textInput.value.trim();
-  if(inputValue){
+  //const validator = /(^[A-Z][a-z]{2,12} [A-Z][a-z]{1,17}$)|(^[А-Я][а-я]{2,12} [А-Я][а-я]{1,17}$)/;
+  //const validator = /^[А-Я][а-я]{1,17} ([А-Я]\.){2}$/;
+  
+  if(validator.test(inputValue)){
     messageArray.push(inputValue);
-    //после добавления - очищать форму
     form.reset();
   }
   //рендерить на странице то, что добавилось в массив

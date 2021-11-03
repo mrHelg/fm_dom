@@ -1,7 +1,6 @@
 'use strict';
 
 const pattern1 = new RegExp('\\b\\w{2}\\b','gi');
-
 const pattern2 = /\b\w{4}\b/gi;
 
 if(pattern2.test('qwewdfsf 15sdsa21 @#$#')){
