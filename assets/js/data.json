@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Elon",
+    "age": 50,
+    "isMale": true,
+    "car": null,
+    "children": ["Olga", "Igor", "Nikki"]
+  },
+  {
+    "name": "Helen",
+    "age": 44,
+    "isMale": false,
+    "car": null,
+    "children": ["Egor", "Oksana"]
+  }
+]

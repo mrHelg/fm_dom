@@ -1,17 +1,24 @@
 'use strict';
 
-// const btn = document.getElementById('btn');
- function counter() {
-  let i = 1;
-  return function () {
-    console.log(i++);
-  };
-}
-//a()();
+// const obj = {
+//   name: 'Elon',
+//   age: 50,
+//   isMale: true,
+//   car: null,
+//   hasPet: undefined,
+//   children: ['Olga', 'Igor'],
+// };
 
-const a = counter();
-a();
-a();
-a();
+fetch('./assets/js/data.json')
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    data.forEach((item) => console.log(item.name));
+  })
+  .catch((error) => {
+    if (err instanceof SyntaxError) {
 
-counter()();
+    }
+    console.log('response: ', error);
+  });
+
